@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:product_hunt_flutter/features/domain/entities/post.dart';
+import 'package:product_hunt_flutter/features/presentation/product_detail/product_details.dart';
 import 'package:product_hunt_flutter/ui/colors.dart';
 import 'package:product_hunt_flutter/ui/styles.dart';
 
@@ -96,7 +97,12 @@ class _SearchScreenState extends State<SearchScreen> {
                     padding: const EdgeInsets.only(
                         left: 16, right: 16, top: 16, bottom: 16),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    Get.to(() => ProductDetailsPage(
+                          postId: post.id.toString(),
+                          postTitle: post.name,
+                        ));
+                  },
                   label: Padding(
                     padding: const EdgeInsets.only(left: 10),
                     child: Text(
@@ -124,7 +130,10 @@ class _SearchScreenState extends State<SearchScreen> {
                   ),
                 ),
                 onPressed: () {
-                  Get.back(result: post);
+                  Get.to(() => ProductDetailsPage(
+                        postId: post.id.toString(),
+                        postTitle: post.name,
+                      ));
                 },
                 label: Padding(
                   padding: const EdgeInsets.only(left: 10),
