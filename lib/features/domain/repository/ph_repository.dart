@@ -7,4 +7,8 @@ abstract class ProductHuntRepository {
   Future<List<Topic>> fetchTopTopics();
 
   Future<List<Post>> fetchProductsForTopic();
+
+  Future<Post> fetchProductsDetails({
+    required String postId,
+  });
 }

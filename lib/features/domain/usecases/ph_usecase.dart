@@ -7,4 +7,8 @@ abstract class ProductHuntUsecase {
   Future<List<Topic>> getTopTopics();
 
   Future<List<Post>> getProductsForTopic();
+
+  Future<Post> getProductsDetails({
+    required String postId,
+  });
 }

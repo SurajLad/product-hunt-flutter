@@ -3,7 +3,7 @@ import 'package:equatable/equatable.dart';
 class Maker extends Equatable {
   final int? id;
   final String? createdAt;
-  final String? name;
+  final String name;
   final String? username;
   final String? headline;
   final String? twitterUsername;
@@ -14,7 +14,7 @@ class Maker extends Equatable {
   const Maker({
     this.id,
     this.createdAt,
-    this.name,
+    this.name = '',
     this.username,
     this.headline,
     this.twitterUsername,

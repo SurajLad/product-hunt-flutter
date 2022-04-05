@@ -23,4 +23,9 @@ class ProductHuntUsecaseImpl extends ProductHuntUsecase {
   Future<List<Topic>> getTopTopics() {
     return phRepository.fetchTopTopics();
   }
+
+  @override
+  Future<Post> getProductsDetails({required String postId}) {
+    return phRepository.fetchProductsDetails(postId: postId);
+  }
 }

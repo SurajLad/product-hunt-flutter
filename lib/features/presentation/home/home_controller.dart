@@ -9,6 +9,9 @@ class HomeController extends GetxController {
   final latestPosts = <Post>[].obs;
   final latestTopics = <Topic>[].obs;
 
+  final searchedKey = ''.obs;
+  final productDetails = const Post().obs;
+
   HomeController({required ProductHuntUsecase usecase}) {
     phUsecase = usecase;
   }
@@ -19,5 +22,10 @@ class HomeController extends GetxController {
     latestTopics.value = await phUsecase.getTopTopics();
 
     super.onInit();
+  }
+
+  void getProductDetails({required String postId}) async {
+    productDetails.value = const Post();
+    productDetails.value = await phUsecase.getProductsDetails(postId: postId);
   }
 }

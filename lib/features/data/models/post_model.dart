@@ -1,14 +1,16 @@
+import 'package:product_hunt_flutter/features/data/models/media_model.dart';
 import 'package:product_hunt_flutter/features/data/models/screenshot_url_model.dart';
 import 'package:product_hunt_flutter/features/data/models/thumbnail_model.dart';
 import 'package:product_hunt_flutter/features/data/models/topic_model.dart';
 import 'package:product_hunt_flutter/features/domain/entities/post.dart';
+import 'comment_model.dart';
 import 'maker_model.dart';
 
 class PostModel extends Post {
   const PostModel({
     final int? commentsCount,
     final int? id,
-    final String? name,
+    final String name = '',
     final String? productState,
     final String? tagline,
     final String? slug,
@@ -25,11 +27,41 @@ class PostModel extends Post {
     final ThumbnailModel? thumbnail,
     final List<TopicModel> topics = const [],
     final MakersModel? user,
-  });
+    final int? reviewsCount,
+    final List<CommentModel> comments = const [],
+    final String description = '',
+    final List<MediaModel> media = const [],
+  }) : super(
+          commentsCount: commentsCount,
+          id: id,
+          name: name,
+          productState: productState,
+          createdAt: createdAt,
+          day: day,
+          discussionUrl: discussionUrl,
+          featured: featured,
+          iosFeaturedAt: iosFeaturedAt,
+          makerInside: makerInside,
+          makers: makers,
+          topics: topics,
+          redirectUrl: redirectUrl,
+          screenshotUrl: screenshotUrl,
+          slug: slug,
+          tagline: tagline,
+          thumbnail: thumbnail,
+          user: user,
+          votesCount: votesCount,
+          reviewsCount: reviewsCount,
+          comments: comments,
+          media: media,
+          description: description,
+        );
 
   factory PostModel.fromJson(Map<String, dynamic> json) {
     final _makers = <MakersModel>[];
     final _topics = <TopicModel>[];
+    final _comments = <CommentModel>[];
+    final _medias = <MediaModel>[];
 
     if (json['makers'] != null) {
       json['makers'].forEach((v) {
@@ -39,6 +71,16 @@ class PostModel extends Post {
     if (json['topics'] != null) {
       json['topics'].forEach((v) {
         _topics.add(TopicModel.fromJson(v));
+      });
+    }
+    if (json['comments'] != null) {
+      json['comments'].forEach((v) {
+        _comments.add(CommentModel.fromJson(v));
+      });
+    }
+    if (json['media'] != null) {
+      json['media'].forEach((v) {
+        _medias.add(MediaModel.fromJson(v));
       });
     }
     return PostModel(
@@ -57,6 +99,8 @@ class PostModel extends Post {
       makerInside: json['maker_inside'],
       makers: _makers,
       topics: _topics,
+      comments: _comments,
+      media: _medias,
       redirectUrl: json['redirect_url'],
       screenshotUrl: json['screenshot_url'] != null
           ? ScreenshotUrlModel.fromJson(json['screenshot_url'])
@@ -65,6 +109,7 @@ class PostModel extends Post {
           ? ThumbnailModel.fromJson(json['thumbnail'])
           : null,
       user: json['user'] != null ? MakersModel.fromJson(json['user']) : null,
+      description: json['description'] ?? '',
     );
   }
 

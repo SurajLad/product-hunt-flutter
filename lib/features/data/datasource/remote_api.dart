@@ -10,6 +10,10 @@ abstract class ProductHuntApi {
   Future<List<TopicModel>> fetchTopTopics();
 
   Future<List<PostModel>> fetchProductsForTopic();
+
+  Future<PostModel> fetchProductsDetails({
+    required String postId,
+  });
 }
 
 class ProductHuntRemoteApi extends ProductHuntApi {
@@ -22,15 +26,16 @@ class ProductHuntRemoteApi extends ProductHuntApi {
   @override
   Future<List<PostModel>> fetchProductsForTopic() async {
     List<PostModel> _posts = [];
-
-    final response = await apiClient.get(
-      Urls.posts,
-    );
-    debugPrint(response.statusCode.toString());
-    debugPrint(response.data);
-    _posts = (response.data['posts'] as List)
-        .map((e) => PostModel.fromJson(e))
-        .toList();
+    // TO DO :
+    // IMPLEMENT LATER
+    // final response = await apiClient.get(
+    //   Urls.posts,
+    // );
+    // debugPrint(response.statusCode.toString());
+    // debugPrint(response.data);
+    // _posts = (response.data['posts'] as List)
+    //     .map((e) => PostModel.fromJson(e))
+    //     .toList();
 
     return _posts;
   }
@@ -44,10 +49,11 @@ class ProductHuntRemoteApi extends ProductHuntApi {
     );
     debugPrint(response.statusCode.toString());
     // debugPrint(response.data.toString());
-
-    _posts = (response.data['posts'] as List)
-        .map((e) => PostModel.fromJson(e))
-        .toList();
+    if (response.statusCode == 200) {
+      _posts = (response.data['posts'] as List)
+          .map((e) => PostModel.fromJson(e))
+          .toList();
+    }
 
     return _posts;
   }
@@ -61,11 +67,27 @@ class ProductHuntRemoteApi extends ProductHuntApi {
     );
     debugPrint(response.statusCode.toString());
     // debugPrint(response.data.toString());
-
-    _topics = (response.data['topics'] as List)
-        .map((e) => TopicModel.fromJson(e))
-        .toList();
-
+    if (response.statusCode == 200) {
+      _topics = (response.data['topics'] as List)
+          .map((e) => TopicModel.fromJson(e))
+          .toList();
+    }
     return _topics;
+  }
+
+  @override
+  Future<PostModel> fetchProductsDetails({required String postId}) async {
+    late PostModel _postDetail;
+
+    final response = await apiClient.get(
+      Urls.posts + '/$postId',
+    );
+    debugPrint(response.statusCode.toString());
+    // debugPrint(response.data.toString());
+    if (response.statusCode == 200) {
+      _postDetail = PostModel.fromJson(response.data['post']);
+    }
+
+    return _postDetail;
   }
 }

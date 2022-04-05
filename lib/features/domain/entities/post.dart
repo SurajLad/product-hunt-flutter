@@ -4,10 +4,13 @@ import 'package:product_hunt_flutter/features/domain/entities/screenshot_url.dar
 import 'package:product_hunt_flutter/features/domain/entities/thumbnail.dart';
 import 'package:product_hunt_flutter/features/domain/entities/topic.dart';
 
+import 'comment.dart';
+import 'media.dart';
+
 class Post extends Equatable {
   final int? commentsCount;
   final int? id;
-  final String? name;
+  final String name;
   final String? productState;
   final String? tagline;
   final String? slug;
@@ -24,11 +27,15 @@ class Post extends Equatable {
   final Thumbnail? thumbnail;
   final List<Topic> topics;
   final Maker? user;
+  final int? reviewsCount;
+  final List<Comment> comments;
+  final String description;
+  final List<Media> media;
 
   const Post({
     this.commentsCount,
     this.id,
-    this.name,
+    this.name = '',
     this.productState,
     this.tagline,
     this.slug,
@@ -45,6 +52,10 @@ class Post extends Equatable {
     this.thumbnail,
     this.topics = const [],
     this.user,
+    this.reviewsCount,
+    this.comments = const [],
+    this.description = '',
+    this.media = const [],
   });
 
   @override

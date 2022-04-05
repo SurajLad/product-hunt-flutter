@@ -4,7 +4,7 @@ class MakersModel extends Maker {
   const MakersModel({
     int? id,
     String? createdAt,
-    String? name,
+    String name = '',
     String? username,
     String? headline,
     String? twitterUsername,
@@ -27,7 +27,7 @@ class MakersModel extends Maker {
     return MakersModel(
       id: json['id'],
       createdAt: json['created_at'],
-      name: json['name'],
+      name: json['name'] ?? '',
       username: json['username'],
       headline: json['headline'],
       twitterUsername: json['twitter_username'],

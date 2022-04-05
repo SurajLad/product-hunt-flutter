@@ -23,4 +23,9 @@ class ProductHuntRepositoryImpl extends ProductHuntRepository {
   Future<List<Topic>> fetchTopTopics() {
     return productHuntApi.fetchTopTopics();
   }
+
+  @override
+  Future<Post> fetchProductsDetails({required String postId}) {
+    return productHuntApi.fetchProductsDetails(postId: postId);
+  }
 }

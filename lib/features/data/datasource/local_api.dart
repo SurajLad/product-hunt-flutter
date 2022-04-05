@@ -20,4 +20,10 @@ class ProductHuntRemoteApi extends ProductHuntApi {
     // TODO: implement fetchTopTopics
     throw UnimplementedError();
   }
+
+  @override
+  Future<PostModel> fetchProductsDetails({required String postId}) {
+    // TODO: implement fetchProductsDetails
+    throw UnimplementedError();
+  }
 }

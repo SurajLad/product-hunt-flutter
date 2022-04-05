@@ -2,10 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:get/instance_manager.dart';
 import 'package:product_hunt_flutter/features/domain/usecases/ph_usecase.dart';
 import 'package:product_hunt_flutter/features/presentation/components/custom_appbar.dart';
+import 'package:product_hunt_flutter/features/presentation/components/search_bar.dart';
+import 'package:product_hunt_flutter/features/presentation/home/widgets/top_products_sections.dart';
 import 'package:product_hunt_flutter/ui/colors.dart';
 import 'package:product_hunt_flutter/ui/styles.dart';
 
 import 'home_controller.dart';
+import 'widgets/latest_posts_section.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -47,76 +50,21 @@ class _HomeScreenState extends State<HomeScreen> {
                 style: AppTextStyles.secondaryBody,
               ),
               const SizedBox(height: 16),
-              _SearchBar(),
+              const SearchBar(),
               const SizedBox(height: 16),
               const Text(
                 'Top Topics',
                 style: AppTextStyles.primaryBodyBold,
               ),
-              _TopTopicPostSection(),
+              TopTopicPostSection(),
               const SizedBox(height: 16),
               const Text(
                 'Todays Products',
                 style: AppTextStyles.primaryBodyBold,
               ),
-              _LatestPostection(),
+              const LatestPostection(),
             ],
           ),
-        ),
-      ),
-    );
-  }
-}
-
-class _LatestPostection extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.only(left: 16, top: 8),
-      decoration: BoxDecoration(
-        color: AppColors.white,
-        borderRadius: BorderRadius.circular(6),
-      ),
-      child: TextFormField(
-        decoration: const InputDecoration(
-          hintText: 'Search',
-          border: InputBorder.none,
-          suffixIcon: Icon(Icons.search),
-        ),
-      ),
-    );
-  }
-}
-
-class _TopTopicPostSection extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 160,
-      margin: const EdgeInsets.only(top: 10),
-      padding: const EdgeInsets.only(left: 16, top: 8),
-      decoration: BoxDecoration(
-        color: AppColors.white,
-        borderRadius: BorderRadius.circular(6),
-      ),
-    );
-  }
-}
-
-class _SearchBar extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.only(left: 16, top: 2),
-      decoration: BoxDecoration(
-        color: AppColors.white,
-        borderRadius: BorderRadius.circular(6),
-      ),
-      child: TextFormField(
-        decoration: const InputDecoration(
-          hintText: 'Search',
-          border: InputBorder.none,
-          suffixIcon: Icon(Icons.search),
         ),
       ),
     );
