@@ -1,16 +1,23 @@
 # product_hunt_flutter
 
-A new Flutter project.
+An flutter project around producthunt API.
 
-## Getting Started
+Architechture : 
+Clean architecture by Uncle Bob 
 
-This project is a starting point for a Flutter application.
+State management Solution : GetX
 
-A few resources to get you started if this is your first Flutter project:
+## Features
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+-  Get Latest posts for today
+-  Search in latest products
+-  show Latest Topics
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Upcoming feature 
+
+-  Cache API Response locally.
+-  fetch products as per topics from top topics section
+-  Code improvements
+
+
+
