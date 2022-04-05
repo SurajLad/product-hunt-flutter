@@ -13,11 +13,12 @@ State management Solution : GetX
 -  Search in latest products
 -  show Latest Topics
 
-## Upcoming feature 
+## Pending to develope
 
 -  Cache API Response locally.
 -  fetch products as per topics from top topics section
 -  Code improvements
+-  unit tests
 
 
 
