@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:product_hunt_flutter/core/contants/pages.dart';
 import 'package:product_hunt_flutter/core/router.dart';
-import 'package:product_hunt_flutter/features/presentation/home/controller/home_controller.dart';
-import 'package:product_hunt_flutter/features/presentation/home/search_screen.dart';
 import 'package:product_hunt_flutter/ui/colors.dart';
 
 class SearchBar extends StatelessWidget {
