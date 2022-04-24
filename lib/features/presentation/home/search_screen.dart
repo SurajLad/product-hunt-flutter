@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:product_hunt_flutter/core/contants/pages.dart';
+import 'package:product_hunt_flutter/core/router.dart';
 import 'package:product_hunt_flutter/features/domain/entities/post.dart';
 import 'package:product_hunt_flutter/features/presentation/product_detail/product_details.dart';
 import 'package:product_hunt_flutter/ui/colors.dart';
@@ -98,10 +100,14 @@ class _SearchScreenState extends State<SearchScreen> {
                         left: 16, right: 16, top: 16, bottom: 16),
                   ),
                   onPressed: () {
-                    Get.to(() => ProductDetailsPage(
-                          postId: post.id.toString(),
-                          postTitle: post.name,
-                        ));
+                    AppRouter.pushNamed(
+                      context,
+                      AppRoutes.productDetail,
+                      arguments: ProductArguments(
+                        post.id.toString(),
+                        post.name,
+                      ),
+                    );
                   },
                   label: Padding(
                     padding: const EdgeInsets.only(left: 10),
@@ -130,10 +136,14 @@ class _SearchScreenState extends State<SearchScreen> {
                   ),
                 ),
                 onPressed: () {
-                  Get.to(() => ProductDetailsPage(
-                        postId: post.id.toString(),
-                        postTitle: post.name,
-                      ));
+                  AppRouter.pushNamed(
+                    context,
+                    AppRoutes.productDetail,
+                    arguments: ProductArguments(
+                      post.id.toString(),
+                      post.name,
+                    ),
+                  );
                 },
                 label: Padding(
                   padding: const EdgeInsets.only(left: 10),

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:product_hunt_flutter/features/presentation/home/home_controller.dart';
+import 'package:product_hunt_flutter/features/presentation/home/controller/home_controller.dart';
 import 'package:product_hunt_flutter/ui/colors.dart';
 import 'package:product_hunt_flutter/ui/styles.dart';
 
-class TopTopicPostSection extends StatelessWidget {
-  TopTopicPostSection({Key? key}) : super(key: key);
+class TopTopicProductSection extends StatelessWidget {
+  TopTopicProductSection({Key? key}) : super(key: key);
 
   final controller = Get.find<HomeController>();
 

@@ -2,7 +2,9 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:product_hunt_flutter/core/contants/pages.dart';
 import 'package:product_hunt_flutter/core/injection.dart';
+import 'package:product_hunt_flutter/core/router.dart';
 import 'package:product_hunt_flutter/features/presentation/home/home.dart';
 import 'package:product_hunt_flutter/ui/colors.dart';
 
@@ -31,9 +33,7 @@ class _SplashScreenState extends State<SplashScreen> {
     initModule();
 
     Timer(const Duration(seconds: 2), () {
-      Get.to(
-        () => const HomeScreen(),
-      );
+      AppRouter.pushNamed(context, AppRoutes.home);
     });
     super.initState();
   }

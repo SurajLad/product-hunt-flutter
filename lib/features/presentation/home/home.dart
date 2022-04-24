@@ -7,8 +7,8 @@ import 'package:product_hunt_flutter/features/presentation/home/widgets/top_prod
 import 'package:product_hunt_flutter/ui/colors.dart';
 import 'package:product_hunt_flutter/ui/styles.dart';
 
-import 'home_controller.dart';
-import 'widgets/latest_posts_section.dart';
+import 'controller/home_controller.dart';
+import 'widgets/latest_products_section.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -56,13 +56,13 @@ class _HomeScreenState extends State<HomeScreen> {
                 'Top Topics',
                 style: AppTextStyles.primaryBodyBold,
               ),
-              TopTopicPostSection(),
+              TopTopicProductSection(),
               const SizedBox(height: 16),
               const Text(
                 'Todays Products',
                 style: AppTextStyles.primaryBodyBold,
               ),
-              const LatestPostection(),
+              const LatestProductSection(),
             ],
           ),
         ),

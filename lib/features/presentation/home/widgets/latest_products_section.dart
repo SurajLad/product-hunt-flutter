@@ -1,20 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:product_hunt_flutter/core/contants/pages.dart';
+import 'package:product_hunt_flutter/core/router.dart';
 import 'package:product_hunt_flutter/features/domain/entities/post.dart';
 import 'package:product_hunt_flutter/features/presentation/product_detail/product_details.dart';
 import 'package:product_hunt_flutter/ui/colors.dart';
 import 'package:product_hunt_flutter/ui/styles.dart';
 
-import '../home_controller.dart';
+import '../controller/home_controller.dart';
 
-class LatestPostection extends StatefulWidget {
-  const LatestPostection({Key? key}) : super(key: key);
+class LatestProductSection extends StatefulWidget {
+  const LatestProductSection({Key? key}) : super(key: key);
 
   @override
-  State<LatestPostection> createState() => _LatestPostectionState();
+  State<LatestProductSection> createState() => _LatestProductSectionState();
 }
 
-class _LatestPostectionState extends State<LatestPostection> {
+class _LatestProductSectionState extends State<LatestProductSection> {
   final controller = Get.find<HomeController>();
 
   @override
@@ -41,10 +43,14 @@ class _LatestPostectionState extends State<LatestPostection> {
   InkWell _buildTile(Post post) {
     return InkWell(
       onTap: () {
-        Get.to(() => ProductDetailsPage(
-              postId: post.id.toString(),
-              postTitle: post.name,
-            ));
+        AppRouter.pushNamed(
+          context,
+          AppRoutes.productDetail,
+          arguments: ProductArguments(
+            post.id.toString(),
+            post.name,
+          ),
+        );
       },
       child: Container(
         decoration: BoxDecoration(

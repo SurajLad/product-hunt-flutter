@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:product_hunt_flutter/core/urls.dart';
+import 'package:product_hunt_flutter/core/contants/urls.dart';
 import 'package:product_hunt_flutter/features/data/models/post_model.dart';
 import 'package:product_hunt_flutter/features/data/models/topic_model.dart';
 

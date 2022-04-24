@@ -1,9 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:product_hunt_flutter/features/presentation/home/home_controller.dart';
-import 'package:product_hunt_flutter/features/presentation/home/widgets/latest_posts_section.dart';
+import 'package:product_hunt_flutter/core/router.dart';
+import 'package:product_hunt_flutter/features/presentation/home/controller/home_controller.dart';
+import 'package:product_hunt_flutter/features/presentation/home/widgets/latest_products_section.dart';
 import 'package:product_hunt_flutter/ui/colors.dart';
 import 'package:product_hunt_flutter/ui/styles.dart';
+
+class ProductArguments {
+  final String productId;
+  final String productTitle;
+
+  ProductArguments(this.productId, this.productTitle);
+}
 
 class ProductDetailsPage extends StatefulWidget {
   final String postId;
@@ -34,7 +42,7 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
         backgroundColor: AppColors.white,
         leading: InkWell(
           onTap: () {
-            Get.back();
+            AppRouter.back(context);
           },
           child: const Icon(
             Icons.arrow_back,
